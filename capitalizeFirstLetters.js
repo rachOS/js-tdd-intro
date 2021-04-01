@@ -12,12 +12,19 @@
  */
 
 const assert = require("assert");
-const capitalizeFirstLetters = input => input ? `${input[0].toUpperCase() + input.slice(1) }`: ""
+const capitalizeFirstLetters = input => {
+    const result = input ? input.split(" ")
+            .map(word => `${word[0].toUpperCase()}${word.slice(1)}`)
+        : ""
+
+    return result && result.join(' ')
+}
 
 assert.strictEqual(typeof capitalizeFirstLetters, 'function')
-assert.strictEqual(capitalizeFirstLetters(""),"")
+assert.strictEqual(capitalizeFirstLetters(""), "")
 assert.strictEqual(typeof capitalizeFirstLetters(), 'string')
-assert.strictEqual(capitalizeFirstLetters("h"),"H")
-assert.strictEqual(capitalizeFirstLetters("he"),"He")
-assert.strictEqual(capitalizeFirstLetters("hello"),"Hello")
-assert.strictEqual(capitalizeFirstLetters("hello world"),"Hello World")
+assert.strictEqual(capitalizeFirstLetters("h"), "H")
+assert.strictEqual(capitalizeFirstLetters("he"), "He")
+assert.strictEqual(capitalizeFirstLetters("hello"), "Hello")
+assert.strictEqual(capitalizeFirstLetters("hello world"), "Hello World")
+assert.strictEqual(capitalizeFirstLetters("i am learning TDD"), "I Am Learning TDD")
