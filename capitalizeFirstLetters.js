@@ -12,9 +12,19 @@
  */
 
 const assert = require("assert");
+
 const capitalizeFirstLetters = input => {
-    const result = input ? input.split(" ")
-            .map(word => `${word[0].toUpperCase()}${word.slice(1)}`)
+    const result = input
+        ? input
+            .split(" ")
+            .map(
+                word => {
+                    `
+                    ${word[0].toUpperCase()}
+                    ${word.slice(1)}
+                    `
+                }
+            )
         : ""
 
     return result && result.join(' ')
