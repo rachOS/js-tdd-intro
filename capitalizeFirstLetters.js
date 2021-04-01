@@ -14,20 +14,15 @@
 const assert = require("assert");
 
 const capitalizeFirstLetters = input => {
-    const result = input
-        ? input
+    return input ?
+        input
             .split(" ")
             .map(
-                word => {
-                    `
-                    ${word[0].toUpperCase()}
-                    ${word.slice(1)}
-                    `
-                }
+                word =>
+                    `${word[0].toUpperCase()}${word.slice(1)}`
             )
+            .join(' ')
         : ""
-
-    return result && result.join(' ')
 }
 
 assert.strictEqual(typeof capitalizeFirstLetters, 'function')
